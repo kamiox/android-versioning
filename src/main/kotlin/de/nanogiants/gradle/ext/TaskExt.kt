@@ -42,7 +42,7 @@ internal fun Task.addRenameMappingAction(oldOutput: File, newOutput: String, kee
   println(newOutput)
 
   doLast {
-    val newFile = File(oldOutput.absolutePath.replaceAfterLast("/", newOutput))
+    val newFile = File(oldOutput.absolutePath.replaceAfterLast(File.separator, newOutput))
 
     if (oldOutput.exists()) {
       oldOutput.copyTo(newFile, overwrite = true)
